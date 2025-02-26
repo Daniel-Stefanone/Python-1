@@ -19,7 +19,7 @@ def pagina403():
 def welcome():
     return render_template('welcome.html')
 
-@app.route('validador/', methods=['POST', 'GET'])
+@app.route('/validador/', methods=['POST', 'GET'])
 def validador():
     acesso_u = 'Daniel'
     acesso_s = '123'
@@ -34,7 +34,8 @@ def validador():
         senha = request.args.get['c_senha']
         if usuario == acesso_u and senha == acesso_s: 
             return redirect(url_for('welcome'))
-        else: redirect(url_for('pagina403'))
+        else: 
+            return redirect(url_for('pagina403'))
 
 
 
